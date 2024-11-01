@@ -83,3 +83,4 @@ Here are some of the basic Magit commands and their corresponding Git commands:
 
 
 ** EXWM
+- This Emacs X window manager

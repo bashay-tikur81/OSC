@@ -1,0 +1,3 @@
+[[file:OSC-presentation.org][This is a link to my file]]
+
+[[file:notetaking.org][This is a link to a python file]]

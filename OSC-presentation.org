@@ -1,9 +1,30 @@
-#+TITLE: OPEN SOURCE Contribution for emacs
-#+AUTHOR: Ertale81
+#+TITLE: GNU Emacs flavors combined
+#+AUTHOR: Group work
 
-
-* For Writers and researchers
+* What is GNU?
++ [[./images/gnu.jpeg]]
++ GNU is a recursive acronym for "GNU is Not is Unix". Recursive acronym is a type of acronym that refers to its self.
++ Other examples familiar in Linux world:
+  - PHP: PHP hypertext preprocessor
+  - PIP: Pip installs package
++ One of the prominent products of GNU project is Emacs(Editor Macros) text editor.
+  
+  
+* Emacs for Writers, Researchers and Planners
 ** Org mode
+- Emacs Org mode is a powerful and flexible system for note-taking, task management, authoring, and project planning within the GNU Emacs editor. It provides a structured plain text file format, allowing users to create and manage complex documents, outlines, and lists in a fast and effective way.
+- Key benefits of emacs org mode?
+  + Streamline note taking experience
+  + Managing your TODO(C-c C-t) lists with checkbox, and archiving them
+    - creating schedule C-c C-s
+    - Creating deadline C-c C-d
+  + Executing different programming languages within a text
+  + Links to websites (to create using C-c C-l and to that website using C-c C-o) and linking to your own files.(for files you need to put the file first in the link buffer by hitting C-c l on beginning of file name, for creating a link is C-c C-l)
+  + Managing your file using dired(C-x d) m for marking u for unmarking D for deleting, R for renaming ...
+  + Exporting your note, plan or outline to different formats
+- Let's go to demo...
+
+
 * For Developers
 ** Magit
 - Check if it is installed M-x magit-version RET
@@ -19,8 +40,45 @@
   2) git branch -M main
   3) type P followed by p
 
-*Some Essential commands*
-- *d* to show the diff
+Here are some of the basic Magit commands and their corresponding Git commands:
++ magit-status (git status)
++ magit-add (git add)
++ magit-commit (git commit)
++ magit-branch (git branch)
++ magit-checkout (git checkout)
++ magit-pull (git pull)
++ magit-push (git push)
++ magit-stash (git stash)
++ magit-remote (git remote)
+
+|------------------------+-------------------------|
+| Git commands           | Magit commands          |
+|                        | (on magit-status)       |
+|------------------------+-------------------------|
+| git status             | C-x g                   |
+|------------------------+-------------------------|
+| git add <file>         | s(magit-stage-file)     |
+|------------------------+-------------------------|
+| git commit -m "msg"    | c c                     |
+|------------------------+-------------------------|
+| git push               | P p(push-current)       |
+|------------------------+-------------------------|
+| git pull               | F p(pull-from-upstream) |
+|------------------------+-------------------------|
+| git branch             | b b                     |
+|------------------------+-------------------------|
+| git checkout <branch>  | b c                     |
+|------------------------+-------------------------|
+| git merge <branch>     | m m                     |
+|------------------------+-------------------------|
+| git branch -d <branch> | b d                     |
+|------------------------+-------------------------|
+| git log                | l l                     |
+|------------------------+-------------------------|
+| git diff               | d d                     |
+|------------------------+-------------------------|
+| git clone <url>        | c l                     |
+|------------------------+-------------------------|
 
 
 

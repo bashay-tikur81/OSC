@@ -1,3 +1,4 @@
+
 #+TITLE: GNU Emacs flavors combined
 #+AUTHOR: Group work
 
@@ -41,15 +42,6 @@
   3) type P followed by p
 
 Here are some of the basic Magit commands and their corresponding Git commands:
-+ magit-status (git status)
-+ magit-add (git add)
-+ magit-commit (git commit)
-+ magit-branch (git branch)
-+ magit-checkout (git checkout)
-+ magit-pull (git pull)
-+ magit-push (git push)
-+ magit-stash (git stash)
-+ magit-remote (git remote)
 
 |------------------------+-------------------------|
 | Git commands           | Magit commands          |
@@ -79,8 +71,33 @@ Here are some of the basic Magit commands and their corresponding Git commands:
 |------------------------+-------------------------|
 | git clone <url>        | c l                     |
 |------------------------+-------------------------|
-
+** HTML developer
++ Creating check box C-c C-c c
++ Creaging radio button C-c C-c r
++ ordered list C-c C-c o
++ unordered list C-c C-c u
++ list item C-c C-c l
++ tagging
+  .....
 
 
 ** EXWM
-- This Emacs X window manager
+- Using emacs as your main windows manager
+- To boot to exwm first create a desktop application
+  
+[Desktop Entry]
+Name=EXWM
+Exec=sh /home/ertale/.emacs.d/exwm/start-exwm.sh
+TryExec=sh
+Type=Application
+X-LightDM-DesktopName=exwm
+DesktopName=exwm
+
+- Then create a link to /usr/share/xsession
+
+- You can work by creating frames, windows,
+  ..
+- To create new window C-x 4 f and C-x 5 f for frame
+- Switch to buffers via normal commands.
+- another command for switching buffer:
+  M-x exwm-workspace-switch-to-buffer

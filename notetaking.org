@@ -30,6 +30,10 @@
 * Python documentation
 [[https://python.org][python documentation]]
 
+#+begin_src c :results output
+  #include<stdio.h>
 
-* Let's start magit
-
+  void main(){
+      printf("hello world");
+  }
+#+end_src

@@ -11,7 +11,14 @@
 - Move between sections using p and n. Type TAB to expand or collapse the section at a point. You can also use C-tab to cycle the visibility of the current section and its children.
 - type *s* to stage the changes you made to a file and *u* to unstage a file.
 - and then to commit your changes, type *c*. Then write a message and then type C-c C-c to actually create the commit.
-- What about to push just type *P* to show all the available push commands and arguments and then *p* to push to a branch with the same name as local branch onto the remote configured as the push-remote.(If the push-remote is not configured yet, then you will first be prompted for the remote to push to)
+- What about to push just type *P* to show all the available push commands and arguments and then *p* to push to a branch with the same name as local branch onto the remote configured as the push-remote.(If the push-remote is not configured yet, then you will first be prompted for the remote to push to).
+  
+- To add remote where to push on magit:
+  Open your terminal then 
+  1) git remote add origin https://github.com/your-repo-url.git
+  2) git branch -M main
+  3) type P followed by p
+
 *Some Essential commands*
 - *d* to show the diff
 

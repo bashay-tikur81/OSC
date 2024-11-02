@@ -1,33 +1,74 @@
-
 #+TITLE: GNU Emacs flavors combined
 #+AUTHOR: Group work
 
-* What is GNU?
+Group members:
+
+|-------------------+---------------|
+| Name              | ID            |
+|-------------------+---------------|
+| Hayelom Mekonen   | MIT/UR/117/11 |
+|-------------------+---------------|
+| Bashay Tikur      | MIT/UR/028/11 |
+|-------------------+---------------|
+| Zayd Fshatsion    | MIT/UR/../11  |
+|-------------------+---------------|
+| Bethelihem Fitsum | MIT/UR/../11  |
+|-------------------+---------------|
+
+
+* Introduction
+- This project is a collection of code bases that can be easily integrated to a vanilla emacs text editor that can make the editor more powerfull and robust. The package includes the killer features of emacs, *org mode* and *magit*.
+- Magit is an emacs version of git, which is a porcelain of git. Where as *org mode* is a powerfull note taking, planning, outlining mode inside emacs.
+- 
+** What is GNU?
 + [[./images/gnu.jpeg]]
 + GNU is a recursive acronym for "GNU is Not is Unix". Recursive acronym is a type of acronym that refers to its self.
 + Other examples familiar in Linux world:
   - PHP: PHP hypertext preprocessor
   - PIP: Pip installs package
-+ One of the prominent products of GNU project is Emacs(Editor Macros) text editor.
++ One of the prominent products of GNU project is Emacs(Editor Macros) text
++ GNU/Linux is a free and open source OS.
   
+* General Objectives
++ Understanding Free and open source Software(FOSS)
++ Version control system and repository management
++ Note taking experience
++ Knowing GNU/Linux display manager
+
+* Specific Objective:
++ Exploring the free and open source software, particularly emacs
++ Streamline git workflow via magit
++ Knowing and using github for your code repository
++ using a best practice of note taking experience using emacs org mode
++ Getting out of GUI and getting closer to shell via CLI, which is a keyboard based and more powerful using EXWM(Emacs X windows manager)
++ Familiarizing with GNU/Linux command line commands
+  and more ...
+
   
-* Emacs for Writers, Researchers and Planners
-** Org mode
+* Problem statement
+- Nowadays everything is getting tied up to computers whether you are an author, journalist or programmer or in whatever field you're you need a way to store your data and manage your files. In today's world technology and your working environment is rapidly changing, so always trying to learn the environment and technology is headache. So, what if we have a powerful and robust text editor that will go with you when ever you go independently of the technology and the working environment. In this project we are trying to narrow the scope of emacs text editor and making more powerful and robust for managing almost all your text files and some of the common programming languages.
+* Proposed solution
+- To make your text more powerful and work at different environment we are gonna create a separate code base for individual components, then integrate with the text editor when launching the app.
+  
+* Implementations and usage
+** Emacs for Writers, Researchers and Planners
+*** Org mode
 - Emacs Org mode is a powerful and flexible system for note-taking, task management, authoring, and project planning within the GNU Emacs editor. It provides a structured plain text file format, allowing users to create and manage complex documents, outlines, and lists in a fast and effective way.
+
 - Key benefits of emacs org mode?
   + Streamline note taking experience
   + Managing your TODO(C-c C-t) lists with checkbox, and archiving them
     - creating schedule C-c C-s
     - Creating deadline C-c C-d
   + Executing different programming languages within a text
-  + Links to websites (to create using C-c C-l and to that website using C-c C-o) and linking to your own files.(for files you need to put the file first in the link buffer by hitting C-c l on beginning of file name, for creating a link is C-c C-l)
+  + Links to websites (to create a link use C-c C-l and to follow the link C-c C-o) and linking to your own files.(for files you need to put the file first in the link buffer by hitting C-c l on beginning of file name, for creating a link is C-c C-l)
   + Managing your file using dired(C-x d) m for marking u for unmarking D for deleting, R for renaming ...
   + Exporting your note, plan or outline to different formats
+  + To add in the org mode see the actual code implementation
 - Let's go to demo...
-
-
-* For Developers
-** Magit
+  
+** For Developers
+*** Magit
 - Check if it is installed M-x magit-version RET
 - Type C-x g to display information about the current git repository in a dedicated buffer, called the status buffer. Most git commands are commonly invoked from the status buffer.
 - Move between sections using p and n. Type TAB to expand or collapse the section at a point. You can also use C-tab to cycle the visibility of the current section and its children.
@@ -71,15 +112,15 @@ Here are some of the basic Magit commands and their corresponding Git commands:
 |------------------------+-------------------------|
 | git clone <url>        | c l                     |
 |------------------------+-------------------------|
+
 ** HTML developer
 + Creating check box C-c C-c c
-+ Creaging radio button C-c C-c r
++ Creating radio button C-c C-c r
 + ordered list C-c C-c o
 + unordered list C-c C-c u
 + list item C-c C-c l
-+ tagging
++ tagging for image C-c i, C-c RET for <p> ...
   .....
-
 
 ** EXWM
 - Using emacs as your main windows manager
@@ -95,9 +136,22 @@ DesktopName=exwm
 
 - Then create a link to /usr/share/xsession
 
+- Bring some codes for exwm from github
+
 - You can work by creating frames, windows,
-  ..
 - To create new window C-x 4 f and C-x 5 f for frame
 - Switch to buffers via normal commands.
 - another command for switching buffer:
   M-x exwm-workspace-switch-to-buffer
+- Let's combine all of them and see them in the demo
+
+* Future work
++ Customizing the actual editor in personalized manner
++ Making seamless workflow for programmers without using GUI
+
+* Reference
+1. emacs user manual
+2. emacs org mode manual
+3. Magit user manual
+4. pro git reference
+5. exwm tutorials from youtube

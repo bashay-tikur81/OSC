@@ -1,0 +1,587 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-11-02 Sat 00:32 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>GNU Emacs flavors combined</title>
+<meta name="author" content="Group work" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">GNU Emacs flavors combined</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org9064119">1. Introduction</a>
+<ul>
+<li><a href="#orgf69ee06">1.1. What is GNU?</a></li>
+</ul>
+</li>
+<li><a href="#orgd1e4629">2. General Objectives</a></li>
+<li><a href="#org0bba0b6">3. Specific Objective:</a></li>
+<li><a href="#org3ccb918">4. Problem statement</a></li>
+<li><a href="#org463bafc">5. Proposed solution</a></li>
+<li><a href="#org6261fbf">6. Implementations and usage</a>
+<ul>
+<li><a href="#orgb7382ef">6.1. Emacs for Writers, Researchers and Planners</a>
+<ul>
+<li><a href="#org608610b">6.1.1. Org mode</a></li>
+</ul>
+</li>
+<li><a href="#org333b432">6.2. For Developers</a>
+<ul>
+<li><a href="#orge355aec">6.2.1. Magit</a></li>
+</ul>
+</li>
+<li><a href="#org71d3a61">6.3. HTML developer</a></li>
+<li><a href="#orgbb0224d">6.4. EXWM</a></li>
+</ul>
+</li>
+<li><a href="#orgfeee427">7. Future work</a></li>
+<li><a href="#orgd2ecf55">8. Reference</a></li>
+</ul>
+</div>
+</div>
+<p>
+Group members:
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Name</th>
+<th scope="col" class="org-left">ID</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Hayelom Mekonen</td>
+<td class="org-left">MIT/UR/117/11</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">Bashay Tikur</td>
+<td class="org-left">MIT/UR/028/11</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">Zayd Fshatsion</td>
+<td class="org-left">MIT/UR/../11</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">Bethelihem Fitsum</td>
+<td class="org-left">MIT/UR/../11</td>
+</tr>
+</tbody>
+</table>
+
+
+<div id="outline-container-org9064119" class="outline-2">
+<h2 id="org9064119"><span class="section-number-2">1.</span> Introduction</h2>
+<div class="outline-text-2" id="text-1">
+<ul class="org-ul">
+<li>This project is a collection of code bases that can be easily integrated to a vanilla emacs text editor that can make the editor more powerfull and robust. The package includes the killer features of emacs, <b>org mode</b> and <b>magit</b>.</li>
+<li>Magit is an emacs version of git, which is a porcelain of git. Where as <b>org mode</b> is a powerfull note taking, planning, outlining mode inside emacs.</li>
+<li></li>
+</ul>
+</div>
+<div id="outline-container-orgf69ee06" class="outline-3">
+<h3 id="orgf69ee06"><span class="section-number-3">1.1.</span> What is GNU?</h3>
+<div class="outline-text-3" id="text-1-1">
+<ul class="org-ul">
+<li><img src="./images/gnu.jpeg" alt="gnu.jpeg" /></li>
+<li>GNU is a recursive acronym for "GNU is Not is Unix". Recursive acronym is a type of acronym that refers to its self.</li>
+<li>Other examples familiar in Linux world:
+<ul class="org-ul">
+<li>PHP: PHP hypertext preprocessor</li>
+<li>PIP: Pip installs package</li>
+</ul></li>
+<li>One of the prominent products of GNU project is Emacs(Editor Macros) text</li>
+<li>GNU/Linux is a free and open source OS.</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgd1e4629" class="outline-2">
+<h2 id="orgd1e4629"><span class="section-number-2">2.</span> General Objectives</h2>
+<div class="outline-text-2" id="text-2">
+<ul class="org-ul">
+<li>Understanding Free and open source Software(FOSS)</li>
+<li>Version control system and repository management</li>
+<li>Note taking experience</li>
+<li>Knowing GNU/Linux display manager</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org0bba0b6" class="outline-2">
+<h2 id="org0bba0b6"><span class="section-number-2">3.</span> Specific Objective:</h2>
+<div class="outline-text-2" id="text-3">
+<ul class="org-ul">
+<li>Exploring the free and open source software, particularly emacs</li>
+<li>Streamline git workflow via magit</li>
+<li>Knowing and using github for your code repository</li>
+<li>using a best practice of note taking experience using emacs org mode</li>
+<li>Getting out of GUI and getting closer to shell via CLI, which is a keyboard based and more powerful using EXWM(Emacs X windows manager)</li>
+<li>Familiarizing with GNU/Linux command line commands
+and more &#x2026;</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-org3ccb918" class="outline-2">
+<h2 id="org3ccb918"><span class="section-number-2">4.</span> Problem statement</h2>
+<div class="outline-text-2" id="text-4">
+<ul class="org-ul">
+<li>Nowadays everything is getting tied up to computers whether you are an author, journalist or programmer or in whatever field you're you need a way to store your data and manage your files. In today's world technology and your working environment is rapidly changing, so always trying to learn the environment and technology is headache. So, what if we have a powerful and robust text editor that will go with you when ever you go independently of the technology and the working environment. In this project we are trying to narrow the scope of emacs text editor and making more powerful and robust for managing almost all your text files and some of the common programming languages.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org463bafc" class="outline-2">
+<h2 id="org463bafc"><span class="section-number-2">5.</span> Proposed solution</h2>
+<div class="outline-text-2" id="text-5">
+<ul class="org-ul">
+<li>To make your text more powerful and work at different environment we are gonna create a separate code base for individual components, then integrate with the text editor when launching the app.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org6261fbf" class="outline-2">
+<h2 id="org6261fbf"><span class="section-number-2">6.</span> Implementations and usage</h2>
+<div class="outline-text-2" id="text-6">
+</div>
+<div id="outline-container-orgb7382ef" class="outline-3">
+<h3 id="orgb7382ef"><span class="section-number-3">6.1.</span> Emacs for Writers, Researchers and Planners</h3>
+<div class="outline-text-3" id="text-6-1">
+</div>
+<div id="outline-container-org608610b" class="outline-4">
+<h4 id="org608610b"><span class="section-number-4">6.1.1.</span> Org mode</h4>
+<div class="outline-text-4" id="text-6-1-1">
+<ul class="org-ul">
+<li>Emacs Org mode is a powerful and flexible system for note-taking, task management, authoring, and project planning within the GNU Emacs editor. It provides a structured plain text file format, allowing users to create and manage complex documents, outlines, and lists in a fast and effective way.</li>
+
+<li>Key benefits of emacs org mode?
+<ul class="org-ul">
+<li>Streamline note taking experience</li>
+<li>Managing your TODO(C-c C-t) lists with checkbox, and archiving them
+<ul class="org-ul">
+<li>creating schedule C-c C-s</li>
+<li>Creating deadline C-c C-d</li>
+</ul></li>
+<li>Executing different programming languages within a text</li>
+<li>Links to websites (to create a link use C-c C-l and to follow the link C-c C-o) and linking to your own files.(for files you need to put the file first in the link buffer by hitting C-c l on beginning of file name, for creating a link is C-c C-l)</li>
+<li>Managing your file using dired(C-x d) m for marking u for unmarking D for deleting, R for renaming &#x2026;</li>
+<li>Exporting your note, plan or outline to different formats</li>
+<li>To add in the org mode see the actual code implementation</li>
+</ul></li>
+<li>Let's go to demo&#x2026;</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org333b432" class="outline-3">
+<h3 id="org333b432"><span class="section-number-3">6.2.</span> For Developers</h3>
+<div class="outline-text-3" id="text-6-2">
+</div>
+<div id="outline-container-orge355aec" class="outline-4">
+<h4 id="orge355aec"><span class="section-number-4">6.2.1.</span> Magit</h4>
+<div class="outline-text-4" id="text-6-2-1">
+<ul class="org-ul">
+<li>Check if it is installed M-x magit-version RET</li>
+<li>Type C-x g to display information about the current git repository in a dedicated buffer, called the status buffer. Most git commands are commonly invoked from the status buffer.</li>
+<li>Move between sections using p and n. Type TAB to expand or collapse the section at a point. You can also use C-tab to cycle the visibility of the current section and its children.</li>
+<li>type <b>s</b> to stage the changes you made to a file and <b>u</b> to unstage a file.</li>
+<li>and then to commit your changes, type <b>c</b>. Then write a message and then type C-c C-c to actually create the commit.</li>
+<li>What about to push just type <b>P</b> to show all the available push commands and arguments and then <b>p</b> to push to a branch with the same name as local branch onto the remote configured as the push-remote.(If the push-remote is not configured yet, then you will first be prompted for the remote to push to).</li>
+
+<li>To add remote where to push on magit:
+Open your terminal then 
+<ol class="org-ol">
+<li>git remote add origin <a href="https://github.com/your-repo-url.git">https://github.com/your-repo-url.git</a></li>
+<li>git branch -M main</li>
+<li>type P followed by p</li>
+</ol></li>
+</ul>
+
+<p>
+Here are some of the basic Magit commands and their corresponding Git commands:
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Git commands</th>
+<th scope="col" class="org-left">Magit commands</th>
+</tr>
+
+<tr>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-left">(on magit-status)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">git status</td>
+<td class="org-left">C-x g</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">git add &lt;file&gt;</td>
+<td class="org-left">s(magit-stage-file)</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">git commit -m "msg"</td>
+<td class="org-left">c c</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">git push</td>
+<td class="org-left">P p(push-current)</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">git pull</td>
+<td class="org-left">F p(pull-from-upstream)</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">git branch</td>
+<td class="org-left">b b</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">git checkout &lt;branch&gt;</td>
+<td class="org-left">b c</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">git merge &lt;branch&gt;</td>
+<td class="org-left">m m</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">git branch -d &lt;branch&gt;</td>
+<td class="org-left">b d</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">git log</td>
+<td class="org-left">l l</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">git diff</td>
+<td class="org-left">d d</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">git clone &lt;url&gt;</td>
+<td class="org-left">c l</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org71d3a61" class="outline-3">
+<h3 id="org71d3a61"><span class="section-number-3">6.3.</span> HTML developer</h3>
+<div class="outline-text-3" id="text-6-3">
+<ul class="org-ul">
+<li>Creating check box C-c C-c c</li>
+<li>Creating radio button C-c C-c r</li>
+<li>ordered list C-c C-c o</li>
+<li>unordered list C-c C-c u</li>
+<li>list item C-c C-c l</li>
+<li>tagging for image C-c i, C-c RET for &lt;p&gt; &#x2026;
+&#x2026;..</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgbb0224d" class="outline-3">
+<h3 id="orgbb0224d"><span class="section-number-3">6.4.</span> EXWM</h3>
+<div class="outline-text-3" id="text-6-4">
+<ul class="org-ul">
+<li>Using emacs as your main windows manager</li>
+<li>To boot to exwm first create a desktop application</li>
+</ul>
+
+<p>
+[Desktop Entry]
+Name=EXWM
+Exec=sh <i>home/ertale</i>.emacs.d/exwm/start-exwm.sh
+TryExec=sh
+Type=Application
+X-LightDM-DesktopName=exwm
+DesktopName=exwm
+</p>
+
+<ul class="org-ul">
+<li>Then create a link to /usr/share/xsession</li>
+
+<li>Bring some codes for exwm from github</li>
+
+<li>You can work by creating frames, windows,</li>
+<li>To create new window C-x 4 f and C-x 5 f for frame</li>
+<li>Switch to buffers via normal commands.</li>
+<li>another command for switching buffer:
+M-x exwm-workspace-switch-to-buffer</li>
+<li>Let's combine all of them and see them in the demo</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgfeee427" class="outline-2">
+<h2 id="orgfeee427"><span class="section-number-2">7.</span> Future work</h2>
+<div class="outline-text-2" id="text-7">
+<ul class="org-ul">
+<li>Customizing the actual editor in personalized manner</li>
+<li>Making seamless workflow for programmers without using GUI</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgd2ecf55" class="outline-2">
+<h2 id="orgd2ecf55"><span class="section-number-2">8.</span> Reference</h2>
+<div class="outline-text-2" id="text-8">
+<ol class="org-ol">
+<li>emacs user manual</li>
+<li>emacs org mode manual</li>
+<li>Magit user manual</li>
+<li>pro git reference</li>
+<li>exwm tutorials from youtube</li>
+</ol>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Group work</p>
+<p class="date">Created: 2024-11-02 Sat 00:32</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
